@@ -4,6 +4,7 @@ import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adminwavesoffood.databinding.ActivitySignUpBinding
 
@@ -25,6 +26,9 @@ class SignUpActivity: AppCompatActivity() {
         val adapter = ArrayAdapter(this, R.layout.simple_list_item_1, locationList)
         val autoCompleteTextView = binding.listOfLocation
         autoCompleteTextView.setAdapter(adapter)
+        autoCompleteTextView.setOnClickListener {
+            autoCompleteTextView.showDropDown()
+        }
     }
 
     private fun setOnClickSignUpBtn() {

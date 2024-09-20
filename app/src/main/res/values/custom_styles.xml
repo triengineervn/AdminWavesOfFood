@@ -10,6 +10,8 @@
 
     <style name="CustomStyle.WavesOfFood.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
         <item name="android:background">@drawable/background_outline</item>
+        <item name="endIconMode">none</item>
+        <item name="hintEnabled">false</item>
         <item name="android:layout_marginHorizontal">@dimen/activity_horizontal_margin</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>

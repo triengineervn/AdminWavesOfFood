@@ -29,9 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView3" />
 
-    <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:orientation="vertical"
         style="@style/CustomStyle.WavesOfFood.TextInput"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_xl"
@@ -42,13 +41,12 @@
 
         <AutoCompleteTextView
             android:id="@+id/listOfLocation"
-            android:textAppearance="@style/TextAppearance.WavesOfFood.Body"
             android:drawableEnd="@drawable/arrow_circle_down"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/CustomStyle.WavesOfFood.NoUnderlineAutoCompleteTextView"
+            android:completionThreshold="0"
             android:hint="@string/prompt_add_location" />
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/editTextNameOwner"
