@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Base Text Styles -->
+    <style name="TextAppearance.WavesOfFood" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/font_m</item>
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
+    <!-- Common custom style-->
+    <style name="CustomStyle"/>
+
+</resources>

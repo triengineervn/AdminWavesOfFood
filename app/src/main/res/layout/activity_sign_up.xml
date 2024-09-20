@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_sign_up"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/space_m"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:text="@string/prompt_add_location"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <LinearLayout
+        android:id="@+id/textInputLayout"
+        android:orientation="vertical"
+        style="@style/CustomStyle.WavesOfFood.TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:layout_marginTop="@dimen/space_xs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <AutoCompleteTextView
+            android:id="@+id/listOfLocation"
+            android:textAppearance="@style/TextAppearance.WavesOfFood.Body"
+            android:drawableEnd="@drawable/arrow_circle_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/CustomStyle.WavesOfFood.NoUnderlineAutoCompleteTextView"
+            android:hint="@string/prompt_add_location" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextNameOwner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:drawableStart="@drawable/user_icon"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        android:hint="@string/prompt_name_owner"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+
+    <EditText
+        android:id="@+id/editTextNameRestaurant"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:inputType="textPersonName"
+        android:hint="@string/prompt_name_restaurant"
+        android:drawableStart="@drawable/home_icon"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameOwner" />
+
+    <EditText
+        android:id="@+id/editTextEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:inputType="textEmailAddress"
+        android:hint="@string/concise_email_phone"
+        android:drawableStart="@drawable/gmail_icon"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameRestaurant" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/concise_password"
+        android:drawableStart="@drawable/lock_icon"
+        android:drawableEnd="@drawable/eye_slash_icon"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpBtn"
+        style="@style/CustomStyle.WavesOfFood.PrimaryButton"
+        android:layout_width="@dimen/button_w_xl"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:text="@string/concise_create_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <TextView
+        android:id="@+id/loginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:text="@string/prompt_have_account"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/googleBtn"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/google_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/space_s"
+        app:layout_constraintEnd_toStartOf="@+id/facebookBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextView"
+        android:text="@string/concise_google" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/facebookBtn"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:drawableStart="@drawable/facebook_icon"
+        app:layout_constraintStart_toEndOf="@+id/googleBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextView"
+        android:text="@string/concise_facebook" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
