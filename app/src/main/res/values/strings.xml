@@ -53,15 +53,16 @@
     <string name="prompt_order_success">Congrats\nYour Order Placed</string>
     <string name="prompt_go_home">Go home</string>
     <string name="prompt_choose_location">To provide you with the best dining experience, we need your permission to access your device\'s location. By enabling location services, we can offer personalized restaurant recommendations, accurate delivery estimates, and ensure a seamless food delivery experience.\"</string>
-
+    <string name="prompt_pending_order">Pending Order</string>
     <!--    action-->
     <string name="action_proceed">Proceed</string>
-    <string name="action_pending">Pending Order</string>
-
     <!--    invalid-->
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="invalid_login_failed">"Login failed"</string>
+    <string name="invalid_received">Received</string>
+    <string name="invalid_not_received">Not Received</string>
+    <string name="invalid_pending">Pending</string>
 
     <!--other-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -83,6 +84,7 @@
     <string name="prompt_short_description">Short Description</string>
     <string name="concise_ingredients">Ingredients</string>
     <string name="pick_image">Pick image</string>
+    <string name="concise_payment">Payment</string>
 
 
 </resources>

@@ -19,5 +19,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddMenuActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnAllItemMenu.setOnClickListener {
+            val intent = Intent(this, ListItemActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnOrderDispatch.setOnClickListener {
+            val intent = Intent(this, OrderDispatchActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

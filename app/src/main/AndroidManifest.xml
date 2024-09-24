@@ -15,8 +15,14 @@
         android:theme="@style/Theme.WavesOfFood"
         tools:targetApi="31">
         <activity
+            android:name=".activities.OrderDispatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ListItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true" />
@@ -31,7 +37,6 @@
         </activity>
         <activity
             android:name=".activities.AddMenuActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
             android:exported="true" />
         <activity
             android:name=".activities.SignUpActivity"

@@ -39,6 +39,7 @@
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_input">48dp</dimen>
+    <dimen name="circle_status">36dp</dimen>
     <dimen name="short_title_spacing">90dp</dimen>
     <dimen name="medium_title_spacing">120dp</dimen>
     <dimen name="long_title_spacing">160dp</dimen>

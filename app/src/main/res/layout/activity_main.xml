@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
-                android:text="@string/action_pending" />
+                android:text="@string/prompt_pending_order" />
 
             <TextView
                 android:layout_weight="1"
