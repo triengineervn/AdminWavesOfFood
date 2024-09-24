@@ -5,15 +5,222 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/space_m"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/image_s"
+            android:layout_height="@dimen/image_s"
+            android:layout_marginStart="@dimen/space_m"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_m"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/background_shadow"
+        android:id="@+id/linearLayout2"
+        android:elevation="@dimen/elevation_m"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginHorizontal="@dimen/space_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/information_circle_icon" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/success_illu" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/money_dollars_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginVertical="@dimen/space_xs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+                android:text="@string/action_pending" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+                android:text="@string/action_completed" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+
+                android:text="@string/action_time_earning" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/text_primary"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
+                android:text="0" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_warning"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
+                android:text="0" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
+                android:text="0$" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="@dimen/space_l"
+        android:id="@+id/btnAddMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_add_menu"
+        android:drawableTop="@drawable/add_icon"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toStartOf="@+id/btnAllItemMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="@dimen/space_l"
+        android:id="@+id/btnAllItemMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_all_item"
+        android:drawableTop="@drawable/eye_icon"
+        android:drawableTint="@color/primary"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAddMenu"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="@dimen/space_m"
+        android:id="@+id/btnProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/concise_profile"
+        android:drawableTop="@drawable/profile_icon"
+        android:drawableTint="@color/primary"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toStartOf="@+id/btnCreateAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddMenu" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="@dimen/space_m"
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/concise_create_account"
+        android:drawableTop="@drawable/eye_icon"
+        android:drawableTint="@color/primary"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnProfile"
+        app:layout_constraintTop_toBottomOf="@+id/btnAllItemMenu" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOrderDispatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/concise_order_dispatch"
+        android:drawableTop="@drawable/bag_icon"
+        android:drawableTint="@color/primary"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toStartOf="@id/btnLogOut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/concise_log_out"
+        android:drawableTop="@drawable/log_out_icon"
+        android:drawableTint="@color/primary"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Highlight"
+        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnOrderDispatch"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_input">48dp</dimen>
     <dimen name="short_title_spacing">90dp</dimen>
+    <dimen name="medium_title_spacing">120dp</dimen>
     <dimen name="long_title_spacing">160dp</dimen>
     <dimen name="card_view_height">200dp</dimen>
     <dimen name="list_view_height">400dp</dimen>"

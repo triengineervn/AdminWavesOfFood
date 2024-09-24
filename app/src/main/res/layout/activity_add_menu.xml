@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddMenuActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/background"
+                    app:srcCompat="@drawable/back_arrow_icon" />
+
+                <TextView
+                    android:id="@+id/foodName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prompt_add_item"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/activity_horizontal_margin"
+                style="@style/CustomStyle.WavesOfFood.TextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <TextView
+                    android:layout_width="@dimen/medium_title_spacing"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concise_item_name"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/activity_horizontal_margin"
+                style="@style/CustomStyle.WavesOfFood.TextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <TextView
+                    android:layout_width="@dimen/medium_title_spacing"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concise_item_price"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+                <EditText
+                    android:id="@+id/editTextPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/activity_horizontal_margin"
+                style="@style/CustomStyle.WavesOfFood.TextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <TextView
+                    android:layout_width="@dimen/medium_title_spacing"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concise_item_image"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+                <ImageView
+                    android:id="@+id/pickImage"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/pick_image"
+                    android:src="@drawable/add_image_icon" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/activity_horizontal_margin"
+                style="@style/CustomStyle.WavesOfFood.TextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                <TextView
+                    android:layout_width="@dimen/long_title_spacing"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prompt_short_description"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+                <EditText
+                    android:id="@+id/editTextDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/space_m"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/activity_horizontal_margin"
+                style="@style/CustomStyle.WavesOfFood.TextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                <TextView
+                    android:layout_width="@dimen/medium_title_spacing"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concise_ingredients"
+                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+                <EditText
+                    android:id="@+id/editTextIngredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/CustomStyle.WavesOfFood.PrimaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_add_item"
+                android:layout_marginVertical="@dimen/space_xl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

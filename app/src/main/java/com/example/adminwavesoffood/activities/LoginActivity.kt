@@ -1,4 +1,4 @@
-package com.example.adminwavesoffood
+package com.example.adminwavesoffood.activities
 
 import android.content.Intent
 import android.os.Bundle

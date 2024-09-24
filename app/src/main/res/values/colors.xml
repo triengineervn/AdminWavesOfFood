@@ -19,7 +19,7 @@
     <color name="secondary">#009688</color>
     <color name="secondary_dark">#00796B</color>
     <color name="secondary_light">#B2DFDB</color>
-    <color name="background">#ffffff</color>
+    <color name="background">#f8ffffff</color>
     <color name="white">#ffffff</color>
     <color name="surface">#F5F5F5</color>
     <color name="error">#D32F2F</color>
