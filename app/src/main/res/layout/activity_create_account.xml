@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateAccountActivity">
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/background"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow_icon" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/image_l"
+        android:layout_height="@dimen/image_l"
+        android:layout_marginTop="@dimen/space_l"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginTop="@dimen/space_s"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prompt_create_new_user"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="@dimen/space_xxs"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Subtitle" />
+
+
+    <EditText
+        android:id="@+id/editNameEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:inputType="textEmailAddress"
+        android:hint="@string/concise_name"
+        android:drawableStart="@drawable/user_icon"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/editTextEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:inputType="textEmailAddress"
+        android:hint="@string/concise_email_or_phone"
+        android:drawableStart="@drawable/gmail_icon"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        app:layout_constraintEnd_toEndOf="@+id/editNameEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/editNameEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editNameEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xl"
+        android:inputType="textPassword"
+        android:hint="@string/concise_password"
+        android:drawableStart="@drawable/lock_icon"
+        android:background="@drawable/background_surface"
+        style="@style/CustomStyle.WavesOfFood.EditText"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginBtn"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xl"
+        style="@style/CustomStyle.WavesOfFood.PrimaryButton"
+        android:text="@string/prompt_create_new_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

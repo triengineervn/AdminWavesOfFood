@@ -85,6 +85,12 @@
     <string name="concise_ingredients">Ingredients</string>
     <string name="pick_image">Pick image</string>
     <string name="concise_payment">Payment</string>
+    <string name="prompt_edit_profile">Edit your profile</string>
+    <string name="prompt_click_to_edit">Click here to edit</string>
+    <string name="prompt_create_new_user">Create New User</string>
+    <string name="concise_email_or_phone">Email or phone number</string>
+    <string name="concise_quantity">Quantity</string>
+    <string name="action_accept">Accept</string>
 
 
 </resources>

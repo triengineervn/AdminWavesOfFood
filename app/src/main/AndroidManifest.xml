@@ -14,12 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WavesOfFood"
         tools:targetApi="31">
-        <activity
-            android:name=".activities.OrderDispatchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ListItemActivity"
-            android:exported="false" />
+
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true" />
@@ -40,6 +35,21 @@
             android:exported="true" />
         <activity
             android:name=".activities.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PendingOrdersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CreateAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.OrderDispatchActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ListItemActivity"
             android:exported="true" />
     </application>
 

@@ -28,5 +28,26 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, OrderDispatchActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnCreateAccount.setOnClickListener {
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.pendingView.setOnClickListener {
+            val intent = Intent(this, PendingOrdersActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogOut.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
