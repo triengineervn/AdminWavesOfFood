@@ -4,6 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/image_l"
+        android:layout_height="@dimen/image_l"
+        android:layout_marginTop="@dimen/space_l"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginTop="@dimen/space_s"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -12,9 +34,9 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/space_m"
-        android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="@dimen/space_xxs"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Subtitle" />
 
 
     <TextView
@@ -129,31 +151,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/googleBtn"
-        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/google_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/space_s"
-        app:layout_constraintEnd_toStartOf="@+id/facebookBtn"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextView"
-        android:text="@string/concise_google" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/facebookBtn"
-        style="@style/CustomStyle.WavesOfFood.ElevationIconButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_s"
-        android:drawableStart="@drawable/facebook_icon"
-        app:layout_constraintStart_toEndOf="@+id/googleBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextView"
-        android:text="@string/concise_facebook" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

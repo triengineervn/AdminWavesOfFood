@@ -181,6 +181,7 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addItemBtn"
                 style="@style/CustomStyle.WavesOfFood.PrimaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
