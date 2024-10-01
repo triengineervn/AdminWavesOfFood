@@ -46,19 +46,18 @@
                 android:layout_height="wrap_content"
                 android:text="$7"
                 android:textAlignment="center"
+                android:layout_marginStart="@dimen/space_m"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/itemName"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/itemName"
-                app:layout_constraintTop_toBottomOf="@+id/itemName"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintStart_toEndOf="@+id/itemImage"
+                app:layout_constraintTop_toBottomOf="@+id/itemName" />
 
             <LinearLayout
+                android:id="@+id/linearLayout7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginEnd="@dimen/space_xs"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -73,16 +72,16 @@
                         android:id="@+id/decreaseQuantityBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:padding="@dimen/space_xs"
                         android:background="@drawable/background_primary_btn_s"
+                        android:padding="@dimen/space_xs"
                         app:srcCompat="@drawable/mains_icon" />
 
                     <TextView
                         android:id="@+id/itemQuantity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1"
                         android:paddingHorizontal="@dimen/space_s"
+                        android:text="1"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.WavesOfFood.Subtitle" />
 

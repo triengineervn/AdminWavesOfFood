@@ -70,45 +70,52 @@ class AddMenuActivity : AppCompatActivity() {
             val storageRef = FirebaseStorage.getInstance().reference
             val imageRef = storageRef.child("images/${menuKey}.jpg")
             val uploadTask = imageRef.putFile(foodImage!!)
+            uploadTask.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    imageRef.downloadUrl.addOnSuccessListener { uri ->
+                        val downloadUrl = uri.toString()
 
-            uploadTask.addOnCompleteListener {
-                imageRef.downloadUrl.addOnCompleteListener { downloadUri ->
-
-                    val newItem = BaseModel(
-                        foodName = foodName,
-                        foodPrice = foodPrice,
-                        foodDescription = foodDescription,
-                        foodIngredients = foodIngredients,
-                        foodImage = downloadUri.toString()
-                    )
-                    menuKey.let { key ->
-                        menuRef.child(key!!).setValue(newItem)
-                            .addOnCompleteListener {
-                                Toast.makeText(
-                                    this,
-                                    "Data uploaded successfully",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                            }
-                            .addOnFailureListener {
-                                Toast.makeText(
-                                    this,
-                                    "Data upload failed",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                            }
-                    }
-                }
-                    .addOnFailureListener {
+                        val newItem = BaseModel(
+                            name = foodName,
+                            price = foodPrice,
+                            description = foodDescription,
+                            ingredients = foodIngredients,
+                            image = downloadUrl
+                        )
+                        
+                        menuKey?.let { key ->
+                            menuRef.child(key).setValue(newItem)
+                                .addOnCompleteListener {
+                                    Toast.makeText(
+                                        this,
+                                        "Data uploaded successfully",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(
+                                        this,
+                                        "Data upload failed",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                        }
+                    }.addOnFailureListener {
                         Toast.makeText(
                             this,
                             "Failed to get download URL",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Image upload failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
+
         } else {
             Toast.makeText(
                 this,

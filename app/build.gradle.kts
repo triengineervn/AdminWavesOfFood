@@ -49,7 +49,10 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.play.services.auth)
     implementation(libs.firebase.storage)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 }
