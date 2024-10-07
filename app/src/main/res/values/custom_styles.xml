@@ -61,4 +61,13 @@
         <item name="android:textAppearance">@style/TextAppearance.WavesOfFood.Highlight</item>
     </style>
 
+    <style name="CustomStyle.WavesOfFood.ElevationButton.Reject.Small" parent="CustomStyle">
+        <item name="android:width">@dimen/button_w_s</item>
+        <item name="android:background">@drawable/background_elevation_btn_s</item>
+        <item name="android:drawablePadding">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingHorizontal">@dimen/space_xs</item>
+        <item name="android:textAppearance">@style/TextAppearance.WavesOfFood.Highlight</item>
+        <item name="android:textColor">@color/text_error</item>
+    </style>
+
 </resources>

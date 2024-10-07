@@ -33,7 +33,7 @@
     <string name="concise_notification">Notification</string>
     <string name="concise_edit">Edit</string>
     <string name="concise_payment_method">Payment Method</string>
-    <string name="concise_total_amount">Total Amount</string>
+    <string name="concise_total_amount">Total Amount:</string>
     <!--    prompt-->
     <string name="prompt_login">Login to your\nAdmin Dashboard</string>
     <string name="prompt_sign_up">Sign up here</string>
@@ -89,8 +89,10 @@
     <string name="prompt_click_to_edit">Click here to edit</string>
     <string name="prompt_create_new_user">Create New User</string>
     <string name="concise_email_or_phone">Email or phone number</string>
-    <string name="concise_quantity">Quantity</string>
+    <string name="concise_quantity">Quantity:</string>
     <string name="action_accept">Accept</string>
+    <string name="action_reject">Reject</string>
+    <string name="concise_order_detail">Order Details</string>
 
 
 </resources>

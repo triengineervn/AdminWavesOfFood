@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.OrdersDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background"
+            app:srcCompat="@drawable/back_arrow_icon" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/concise_order_detail"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.WavesOfFood.Title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edit_text"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_s"
+            android:paddingVertical="@dimen/space_s">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="@dimen/short_title_spacing"
+                android:layout_height="wrap_content"
+                android:text="@string/concise_name"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+
+            <TextView
+                android:id="@+id/nameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem_ipsum_short"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Hint" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:background="@drawable/background_edit_text"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_s"
+            android:paddingVertical="@dimen/space_s">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="@dimen/short_title_spacing"
+                android:layout_height="wrap_content"
+                android:text="@string/concise_address"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+            <TextView
+                android:id="@+id/addressEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem_ipsum_short"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Caption" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:background="@drawable/background_edit_text"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_s"
+            android:paddingVertical="@dimen/space_s">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="@dimen/short_title_spacing"
+                android:layout_height="wrap_content"
+                android:text="@string/concise_phone"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+            <TextView
+                android:id="@+id/phoneEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem_ipsum_phone"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Caption" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_s"
+            android:background="@drawable/background_edit_text"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_s"
+            android:paddingVertical="@dimen/space_s">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="@dimen/long_title_spacing"
+                android:layout_height="wrap_content"
+                android:text="@string/concise_total_amount"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+
+            <TextView
+                android:id="@+id/totalPriceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0$"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/concise_order_detail"
+        android:textAppearance="@style/TextAppearance.WavesOfFood.Caption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orderDetailsRecyclerView"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_marginHorizontal="@dimen/space_xs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/order_details_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

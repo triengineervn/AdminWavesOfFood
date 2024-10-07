@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -8,6 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,7 +21,7 @@
             android:padding="@dimen/space_s">
 
             <ImageView
-                android:id="@+id/itemImage"
+                android:id="@+id/foodImageView"
                 android:layout_width="@dimen/image_m"
                 android:layout_height="@dimen/image_m"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -30,61 +30,52 @@
                 app:srcCompat="@drawable/menu_photo_1" />
 
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/foodNameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_m"
                 android:layout_marginTop="@dimen/space_s"
                 android:text="Text View"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Name"
-                app:layout_constraintStart_toEndOf="@+id/itemImage"
+                app:layout_constraintStart_toEndOf="@+id/foodImageView"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/foodQuantityTV"
+                android:layout_marginStart="@dimen/space_xs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/foodNameTV" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/concise_quantity"
+                android:textAlignment="center"
                 android:layout_marginStart="@dimen/space_m"
-                android:layout_marginTop="@dimen/space_s"
-                android:text="@string/concise_total_amount"
-                android:textAppearance="@style/TextAppearance.WavesOfFood.Small"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Caption"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/itemImage"
-                app:layout_constraintTop_toBottomOf="@+id/userName" />
-
+                app:layout_constraintStart_toEndOf="@+id/foodImageView"
+                app:layout_constraintTop_toBottomOf="@+id/foodNameTV" />
 
             <TextView
-                android:id="@+id/quantityItem"
+                android:id="@+id/foodPriceTV"
+                android:layout_marginEnd="@dimen/space_s"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_xs"
-                android:layout_marginBottom="@dimen/space_s"
-                android:text="7"
-                android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
+                android:text="7$"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.WavesOfFood.Title"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAccept"
-                android:layout_margin="@dimen/space_xxs"
-                style="@style/CustomStyle.WavesOfFood.PrimaryButton.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_accept"
-                app:layout_constraintBottom_toTopOf="@id/btnReject"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnReject"
-                style="@style/CustomStyle.WavesOfFood.ElevationButton.Reject.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_xxs"
-                android:text="@string/action_reject"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAccept" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

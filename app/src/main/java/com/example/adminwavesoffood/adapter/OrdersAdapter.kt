@@ -6,15 +6,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.adminwavesoffood.databinding.PendingOrdersItemBinding
 import com.example.adminwavesoffood.models.OrdersModel
 
 class OrdersAdapter(
     private var pendingOrders: MutableList<OrdersModel>,
-    private var requireContext: Context
+    private var requireContext: Context,
+    private val itemClickListener: OnItemClickListener
 ) :
     RecyclerView.Adapter<OrdersAdapter.PendingOrdersViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
     inner class PendingOrdersViewHolder(private var binding: PendingOrdersItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private var isAccepted = false
@@ -26,23 +31,29 @@ class OrdersAdapter(
                 quantityItem.text = pendingOrders[position].totalPrice
 
                 btnAccept.apply {
-                    if (!isAccepted) {
-                        text = "Accept"
-                    } else {
-                        text = "Dispatch"
-                    }
                     setOnClickListener {
                         if (!isAccepted) {
                             text = "Dispatch"
                             isAccepted = true
-                            showToast("Order is accepted")
                         } else {
                             pendingOrders.removeAt(adapterPosition)
                             notifyItemRemoved(adapterPosition)
-                            showToast("Order is dispatched")
                         }
                     }
                 }
+
+                btnReject.apply {
+                    setOnClickListener {
+                        pendingOrders.removeAt(adapterPosition)
+                        notifyItemRemoved(adapterPosition)
+                        showToast("Order is rejected")
+                    }
+                }
+
+                itemView.setOnClickListener {
+                    itemClickListener.onItemClick(adapterPosition)
+                }
+
             }
         }
 
