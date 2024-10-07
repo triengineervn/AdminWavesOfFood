@@ -16,14 +16,12 @@ class ListItemActivity : AppCompatActivity() {
     }
 
     private lateinit var databaseReference: DatabaseReference
-    private lateinit var auth: FirebaseAuth
     private val itemList: MutableList<ItemModel> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
         databaseReference = FirebaseDatabase.getInstance().reference
         retrieveListItem()
 
@@ -33,40 +31,37 @@ class ListItemActivity : AppCompatActivity() {
     }
 
     private fun retrieveListItem() {
-        val currentUserId = auth.currentUser?.uid
 
-        if (currentUserId != null) {
-            val itemsRef = databaseReference.child("users/$currentUserId/menu")
 
-            itemsRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    itemList.clear()  // Clear the list to avoid duplicates
+        val itemsRef = databaseReference.child("menu")
 
-                    for (foodSnapshot in snapshot.children) {
-                        val menuItem = foodSnapshot.getValue(ItemModel::class.java)
-                        menuItem?.let {
-                            itemList.add(it) // Add the non-null menuItem to itemList
-                        }
+        itemsRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                itemList.clear()
+
+                for (foodSnapshot in snapshot.children) {
+                    val menuItem = foodSnapshot.getValue(ItemModel::class.java)
+                    menuItem?.let {
+                        itemList.add(it)
                     }
-
-
-                    // Setting up the RecyclerView with the adapter
-                    val adapter = ItemAdapter(this@ListItemActivity, itemList)
-                    binding.itemRecyclerView.layoutManager =
-                        LinearLayoutManager(this@ListItemActivity)
-                    binding.itemRecyclerView.adapter = adapter
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w(
-                        "ListItemActivity",
-                        "Failed to read data: ${error.message}",
-                        error.toException()
-                    )
-                }
-            })
-        } else {
-            Log.w("ListItemActivity", "Current user is null.")
-        }
+
+                // Setting up the RecyclerView with the adapter
+                val adapter = ItemAdapter(this@ListItemActivity, itemList)
+                binding.itemRecyclerView.layoutManager =
+                    LinearLayoutManager(this@ListItemActivity)
+                binding.itemRecyclerView.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(
+                    "ListItemActivity",
+                    "Failed to read data: ${error.message}",
+                    error.toException()
+                )
+            }
+        })
+
     }
 }

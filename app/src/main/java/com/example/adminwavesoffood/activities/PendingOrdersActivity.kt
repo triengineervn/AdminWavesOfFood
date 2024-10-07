@@ -1,12 +1,19 @@
 package com.example.adminwavesoffood.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminwavesoffood.R
-import com.example.adminwavesoffood.adapter.PendingOrdersAdapter
+import com.example.adminwavesoffood.adapter.OrdersAdapter
+
 import com.example.adminwavesoffood.databinding.ActivityPendingOrdersBinding
-import com.example.adminwavesoffood.models.PendingOrderModel
+import com.example.adminwavesoffood.models.OrdersModel
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 class PendingOrdersActivity : AppCompatActivity() {
 
@@ -14,22 +21,51 @@ class PendingOrdersActivity : AppCompatActivity() {
         ActivityPendingOrdersBinding.inflate(layoutInflater)
     }
 
+    private var listOfOrders: MutableList<OrdersModel> = mutableListOf()
+    private lateinit var database: FirebaseDatabase
+    private lateinit var ordersRef: DatabaseReference
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val pendingOrdersItem = mutableListOf(
-            PendingOrderModel("John Doe", 2, R.drawable.menu_photo_1),
-            PendingOrderModel("John Doe", 5, R.drawable.menu_photo_1),
-            PendingOrderModel("John Doe", 8, R.drawable.menu_photo_1),
-            PendingOrderModel("John Doe", 12, R.drawable.menu_photo_1)
-        )
-        val adapter = PendingOrdersAdapter(pendingOrdersItem)
-        binding.pendingOrdersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.pendingOrdersRecyclerView.adapter = adapter
+        database = FirebaseDatabase.getInstance()
+        ordersRef = database.reference.child("users")
+
+        retrievePendingOrders()
+
 
         binding.backBtn.setOnClickListener {
             finish()
         }
+    }
+
+    private fun retrievePendingOrders() {
+        ordersRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (orderSnapshot in snapshot.children) {
+                    val ordersSnapshot = orderSnapshot.child("orders")
+                    for (orderItemSnapshot in ordersSnapshot.children) {
+                        val orderItem = orderItemSnapshot.getValue(OrdersModel::class.java)
+                        orderItem?.let { listOfOrders.add(it) }
+                    }
+                    setAdapter()
+                }
+            }
+
+            private fun setAdapter() {
+
+                val adapter = OrdersAdapter(listOfOrders, this@PendingOrdersActivity)
+                binding.pendingOrdersRecyclerView.layoutManager =
+                    LinearLayoutManager(this@PendingOrdersActivity)
+                binding.pendingOrdersRecyclerView.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@PendingOrdersActivity, "Cancelled", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }

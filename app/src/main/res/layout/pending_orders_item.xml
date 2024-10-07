@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_m"
                 android:layout_marginTop="@dimen/space_s"
-                android:text="@string/concise_quantity"
+                android:text="@string/concise_total_amount"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/itemImage"

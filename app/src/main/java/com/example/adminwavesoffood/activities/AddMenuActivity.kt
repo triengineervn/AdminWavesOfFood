@@ -23,13 +23,11 @@ class AddMenuActivity : AppCompatActivity() {
     private lateinit var foodDescription: String
     private lateinit var foodIngredients: String
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
         binding.addItemBtn.setOnClickListener {
@@ -63,8 +61,7 @@ class AddMenuActivity : AppCompatActivity() {
     }
 
     private fun uploadData() {
-        val userId = FirebaseAuth.getInstance().currentUser!!.uid
-        val menuRef = database.getReference("users/${userId}/menu")
+        val menuRef = database.getReference("menu")
         val menuKey = menuRef.push().key
         if (foodImage != null) {
             val storageRef = FirebaseStorage.getInstance().reference
@@ -82,7 +79,7 @@ class AddMenuActivity : AppCompatActivity() {
                             ingredients = foodIngredients,
                             image = downloadUrl
                         )
-                        
+
                         menuKey?.let { key ->
                             menuRef.child(key).setValue(newItem)
                                 .addOnCompleteListener {
