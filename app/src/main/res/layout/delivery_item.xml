@@ -53,32 +53,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/statusPaymentImage"
+                android:layout_width="@dimen/circle_status"
+                android:layout_height="@dimen/circle_status"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_xs"
+                android:backgroundTint="@color/divider"
+                app:cardCornerRadius="@dimen/corner_full"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Text View"
-                    android:textAppearance="@style/TextAppearance.WavesOfFood.Name" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/statusPaymentImage"
-                    android:layout_width="@dimen/circle_status"
-                    android:layout_height="@dimen/circle_status"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/space_xs"
-                    android:backgroundTint="@color/divider"
-                    app:cardCornerRadius="@dimen/corner_full" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

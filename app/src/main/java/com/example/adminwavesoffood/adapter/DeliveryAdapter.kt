@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adminwavesoffood.R
 import com.example.adminwavesoffood.databinding.DeliveryItemBinding
-import com.example.adminwavesoffood.models.DeliveryModel
 import androidx.core.content.ContextCompat
 
 
-class DeliveryAdapter(private val deliveryModel: MutableList<DeliveryModel>) :
+class DeliveryAdapter(
+    private val deliveryName: MutableList<String>,
+    private val deliveryStatus: MutableList<Boolean>
+) :
     RecyclerView.Adapter<DeliveryAdapter.DeliveryViewHolder>() {
     inner class DeliveryViewHolder(private var binding: DeliveryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -31,14 +33,27 @@ class DeliveryAdapter(private val deliveryModel: MutableList<DeliveryModel>) :
                 )
             )
             binding.apply {
-                userName.text = deliveryModel[position].name
-                statusPayment.text = deliveryModel[position].status
-                statusPayment.setTextColor(
-                    colorMap[deliveryModel[position].status] ?: R.color.overlay
-                )
-                statusPaymentImage.backgroundTintList = ColorStateList.valueOf(
-                    colorMap[deliveryModel[position].status] ?: R.color.overlay,
-                )
+                userName.text = deliveryName[position]
+                if (deliveryStatus[position]) {
+                    statusPayment.text = context.getString(R.string.invalid_received)
+                    statusPayment.setTextColor(
+                        colorMap[context.getString(R.string.invalid_received)] ?: R.color.overlay
+                    )
+                    statusPaymentImage.backgroundTintList = ColorStateList.valueOf(
+                        colorMap[context.getString(R.string.invalid_received)] ?: R.color.overlay,
+                    )
+                } else {
+                    statusPayment.text = context.getString(R.string.invalid_not_received)
+                    statusPayment.setTextColor(
+                        colorMap[context.getString(R.string.invalid_not_received)]
+                            ?: R.color.overlay
+                    )
+                    statusPaymentImage.backgroundTintList = ColorStateList.valueOf(
+                        colorMap[context.getString(R.string.invalid_not_received)]
+                            ?: R.color.overlay,
+                    )
+                }
+
             }
         }
     }
@@ -56,5 +71,5 @@ class DeliveryAdapter(private val deliveryModel: MutableList<DeliveryModel>) :
         holder.bind(position)
     }
 
-    override fun getItemCount(): Int = deliveryModel.size
+    override fun getItemCount(): Int = deliveryName.size
 }

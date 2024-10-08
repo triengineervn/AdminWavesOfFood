@@ -11,18 +11,20 @@ import com.example.adminwavesoffood.models.OrdersModel
 
 class OrdersAdapter(
     private var pendingOrders: MutableList<OrdersModel>,
-    private var requireContext: Context,
     private val itemClickListener: OnItemClickListener
 ) :
     RecyclerView.Adapter<OrdersAdapter.PendingOrdersViewHolder>() {
 
     interface OnItemClickListener {
         fun onItemClick(position: Int)
+        fun onItemDispatch(position: Int)
+        fun onItemAccept(position: Int)
+        fun deleteThisItemFromOrders(dispatchItemPushKey: String)
     }
 
     inner class PendingOrdersViewHolder(private var binding: PendingOrdersItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        private var isAccepted = false
+        private var isDispatch = false
 
         fun bind(position: Int) {
 
@@ -32,23 +34,18 @@ class OrdersAdapter(
 
                 btnAccept.apply {
                     setOnClickListener {
-                        if (!isAccepted) {
+                        if (!isDispatch) {
                             text = "Dispatch"
-                            isAccepted = true
+                            isDispatch = true
+                            itemClickListener.onItemAccept(adapterPosition)
                         } else {
+                            itemClickListener.onItemDispatch(adapterPosition)
                             pendingOrders.removeAt(adapterPosition)
                             notifyItemRemoved(adapterPosition)
                         }
                     }
                 }
 
-                btnReject.apply {
-                    setOnClickListener {
-                        pendingOrders.removeAt(adapterPosition)
-                        notifyItemRemoved(adapterPosition)
-                        showToast("Order is rejected")
-                    }
-                }
 
                 itemView.setOnClickListener {
                     itemClickListener.onItemClick(adapterPosition)
@@ -57,9 +54,6 @@ class OrdersAdapter(
             }
         }
 
-        private fun showToast(s: String) {
-            Toast.makeText(binding.root.context, s, Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrdersViewHolder {

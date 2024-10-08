@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adminwavesoffood.adapter.OrdersAdapter
 import com.example.adminwavesoffood.databinding.ActivityPendingOrdersBinding
 import com.example.adminwavesoffood.models.OrdersModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -24,6 +25,7 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
     private var listOfOrders: MutableList<OrdersModel> = mutableListOf()
     private lateinit var database: FirebaseDatabase
     private lateinit var ordersRef: DatabaseReference
+    private lateinit var userId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
 
         database = FirebaseDatabase.getInstance()
         ordersRef = database.reference.child("users")
+        userId = FirebaseAuth.getInstance().currentUser!!.uid
 
         binding.backBtn.setOnClickListener {
             finish()
@@ -68,7 +71,6 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
     private fun setAdapter() {
         val adapter = OrdersAdapter(
             listOfOrders,
-            this@PendingOrdersActivity,
             this@PendingOrdersActivity
         )
         binding.pendingOrdersRecyclerView.layoutManager =
@@ -81,5 +83,56 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
         val userOrderDetail = listOfOrders[position]
         intent.putExtra("userOrderDetail", userOrderDetail)
         startActivity(intent)
+    }
+
+
+    private fun updateOrderAcceptedStatus(position: Int) {
+        val userIdOfClickItem = listOfOrders[position].userId
+        val pushKeyOfClickItem = listOfOrders[position].itemPushKey
+        if (userIdOfClickItem != null && pushKeyOfClickItem != null) {
+            val reBuyRef =
+                database.reference.child("users").child(userIdOfClickItem).child("history")
+                    .child(pushKeyOfClickItem)
+            reBuyRef.setValue(listOfOrders[position])
+        }
+    }
+
+    override fun onItemAccept(position: Int) {
+        listOfOrders[position].itemPushKey?.let { childItemPushKey ->
+            val clickItemRef =
+                database.reference.child("users/${listOfOrders[position].userId}/orders")
+                    .child(childItemPushKey)
+
+            clickItemRef.child("orderAccepted").setValue(true)
+            updateOrderAcceptedStatus(position)
+        }
+    }
+
+    override fun onItemDispatch(position: Int) {
+
+
+        val dispatchItemPushKey = listOfOrders[position].itemPushKey!!
+        val dispatchItemOrderRef =
+            database.reference.child("users/${userId}/completedOrders")
+                .child(dispatchItemPushKey)
+        dispatchItemOrderRef.setValue(listOfOrders[position])
+            .addOnSuccessListener {
+                deleteThisItemFromOrders(dispatchItemPushKey)
+            }
+
+
+    }
+
+    override fun deleteThisItemFromOrders(dispatchItemPushKey: String) {
+        val orderDetailsRef =
+            database.reference.child("users/${userId}/orders")
+                .child(dispatchItemPushKey)
+        orderDetailsRef.removeValue()
+            .addOnSuccessListener {
+                Toast.makeText(this, "Order has been accepted", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to accept order", Toast.LENGTH_SHORT).show()
+            }
     }
 }

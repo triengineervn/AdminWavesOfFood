@@ -58,7 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_xs"
-                android:layout_marginBottom="@dimen/space_s"
                 android:text="7"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Price"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -66,25 +65,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAccept"
-                android:layout_margin="@dimen/space_xxs"
                 style="@style/CustomStyle.WavesOfFood.PrimaryButton.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/action_accept"
-                app:layout_constraintBottom_toTopOf="@id/btnReject"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnReject"
-                style="@style/CustomStyle.WavesOfFood.ElevationButton.Reject.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_xxs"
-                android:text="@string/action_reject"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAccept" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
