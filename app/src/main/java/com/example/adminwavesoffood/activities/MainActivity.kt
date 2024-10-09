@@ -101,12 +101,13 @@ class MainActivity : AppCompatActivity() {
         setOrderPendingText()
         setOrderCompletedText()
         setTotalPriceText()
+
     }
 
     private fun setOrderPendingText() {
         val orderPendingRef = database.reference.child("users/${userId}/orders")
         var orderPendingCount = 0
-        orderPendingRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        orderPendingRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 orderPendingCount = snapshot.childrenCount.toInt()
                 binding.orderPendingText.text = orderPendingCount.toString()
@@ -123,7 +124,7 @@ class MainActivity : AppCompatActivity() {
     private fun setOrderCompletedText() {
         val orderCompletedRef = database.reference.child("users/${userId}/completedOrders")
         var orderCompletedCount = 0
-        orderCompletedRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        orderCompletedRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 orderCompletedCount = snapshot.childrenCount.toInt()
                 binding.orderCompletedText.text = orderCompletedCount.toString()
@@ -140,7 +141,7 @@ class MainActivity : AppCompatActivity() {
     private fun setTotalPriceText() {
         val orderCompletedRef = database.reference.child("users/${userId}/completedOrders")
         var orderCompletedPaid = mutableListOf<Int>()
-        orderCompletedRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        orderCompletedRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (orderSnapshot in snapshot.children) {
                     var completedOrder = orderSnapshot.getValue(OrdersModel::class.java)

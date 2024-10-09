@@ -93,6 +93,9 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
                 database.reference.child("users").child(userIdOfClickItem).child("history")
                     .child(pushKeyOfClickItem)
             reBuyRef.setValue(listOfOrders[position])
+
+            reBuyRef.child("orderAccepted").setValue(true)
+
         }
     }
 
@@ -102,7 +105,6 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
                 database.reference.child("users/${listOfOrders[position].userId}/orders")
                     .child(childItemPushKey)
 
-            clickItemRef.child("orderAccepted").setValue(true)
             updateOrderAcceptedStatus(position)
         }
     }
@@ -119,7 +121,7 @@ class PendingOrdersActivity : AppCompatActivity(), OrdersAdapter.OnItemClickList
                 deleteThisItemFromOrders(dispatchItemPushKey)
             }
 
-
+        dispatchItemOrderRef.child("orderAccepted").setValue(true)
     }
 
     override fun deleteThisItemFromOrders(dispatchItemPushKey: String) {
