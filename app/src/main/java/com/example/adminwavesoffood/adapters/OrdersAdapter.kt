@@ -1,10 +1,7 @@
-package com.example.adminwavesoffood.adapter
+package com.example.adminwavesoffood.adapters
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adminwavesoffood.databinding.PendingOrdersItemBinding
 import com.example.adminwavesoffood.models.OrdersModel

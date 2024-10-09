@@ -2,11 +2,10 @@ package com.example.adminwavesoffood.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminwavesoffood.adapter.OrdersAdapter
+import com.example.adminwavesoffood.adapters.OrdersAdapter
 import com.example.adminwavesoffood.databinding.ActivityPendingOrdersBinding
 import com.example.adminwavesoffood.models.OrdersModel
 import com.google.firebase.auth.FirebaseAuth

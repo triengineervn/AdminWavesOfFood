@@ -1,4 +1,4 @@
-package com.example.adminwavesoffood.adapter
+package com.example.adminwavesoffood.adapters
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater

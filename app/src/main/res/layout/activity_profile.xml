@@ -94,8 +94,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="100"
-                android:text="@string/lorem_ipsum_short"
-                android:inputType="textPersonName"
+                android:hint="@string/concise_empty"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Hint" />
 
         </LinearLayout>
@@ -110,6 +109,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:layout_gravity="start"
                 android:id="@+id/textView12"
                 android:layout_width="@dimen/short_title_spacing"
                 android:layout_height="wrap_content"
@@ -122,9 +122,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="100"
-                android:inputType="textMultiLine"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Caption"
-                android:text="@string/lorem_ipsum_long" />
+                android:hint="@string/concise_empty" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,9 +148,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="100"
-                android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Caption"
-                android:text="@string/lorem_ipsum_email" />
+                android:hint="@string/concise_empty" />
         </LinearLayout>
 
         <LinearLayout
@@ -176,12 +174,12 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="12"
-                android:inputType="phone"
-                android:text="@string/lorem_ipsum_phone"
+                android:hint="@string/concise_empty"
                 android:textAppearance="@style/TextAppearance.WavesOfFood.Caption" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/passwordComponent"
             android:background="@drawable/background_edit_text"
             android:paddingHorizontal="@dimen/space_s"
             android:paddingVertical="@dimen/space_s"

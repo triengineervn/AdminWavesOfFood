@@ -1,10 +1,9 @@
 package com.example.adminwavesoffood.activities
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminwavesoffood.adapter.DeliveryAdapter
+import com.example.adminwavesoffood.adapters.DeliveryAdapter
 import com.example.adminwavesoffood.databinding.ActivityOrderDispatchBinding
 import com.example.adminwavesoffood.models.OrdersModel
 import com.google.firebase.auth.FirebaseAuth

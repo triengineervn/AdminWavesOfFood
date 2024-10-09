@@ -1,8 +1,12 @@
 package com.example.adminwavesoffood.activities
 
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View.OnClickListener
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adminwavesoffood.databinding.ActivityMainBinding
 import com.example.adminwavesoffood.models.OrdersModel
@@ -57,14 +61,41 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnLogOut.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+        binding.completedOrders.setOnClickListener {
+            val intent = Intent(this, CompletedOrdersActivity::class.java)
             startActivity(intent)
-            finish()
+        }
+
+        binding.btnLogOut.setOnClickListener {
+            showWarningDialog("Are you sure you want to log out?")
         }
 
         setTextViewOrderInfo()
     }
+
+
+    private fun showWarningDialog(title: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setPositiveButton("Yes") { _, _ ->
+            logout()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun logout() {
+        FirebaseAuth.getInstance().signOut()
+
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
+
 
     private fun setTextViewOrderInfo() {
         setOrderPendingText()

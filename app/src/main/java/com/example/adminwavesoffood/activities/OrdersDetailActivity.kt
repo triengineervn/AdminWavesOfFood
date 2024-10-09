@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminwavesoffood.adapter.OrderDetailsAdapter
+import com.example.adminwavesoffood.adapters.OrderDetailsAdapter
 import com.example.adminwavesoffood.databinding.ActivityOrdersDetailBinding
 import com.example.adminwavesoffood.models.OrdersModel
 

@@ -93,6 +93,10 @@
     <string name="action_accept">Accept</string>
     <string name="action_reject">Reject</string>
     <string name="concise_order_detail">Order Details</string>
+    <string name="concise_empty">Empty</string>
+    <string name="prompt_completed_order">Completed Order</string>
+    <string name="concise_time">Time:</string>
+    <string name="concise_location">Location:</string>
 
 
 </resources>
